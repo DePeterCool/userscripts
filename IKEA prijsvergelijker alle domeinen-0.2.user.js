@@ -1,11 +1,13 @@
 // ==UserScript==
 // @name         IKEA prijsvergelijker alle domeinen
-// @namespace    http://tampermonkey.net/
+// @namespace    https://github.com/DePeterCool/userscripts
 // @version      0.3
 // @description  Toon tooltip met prijzen in BE, NL, DE en FR boven de prijs op IKEA productpagina's op alle ikea.com domeinen
 // @match        https://www.ikea.com/be/nl/p/*
 // @grant        GM_xmlhttpRequest
 // @connect      ikea.com
+// @updateURL    https://raw.githubusercontent.com/DePeterCool/userscripts/main/IKEA%20prijsvergelijker%20alle%20domeinen-0.2.user.js
+// @downloadURL  https://raw.githubusercontent.com/DePeterCool/userscripts/main/IKEA%20prijsvergelijker%20alle%20domeinen-0.2.user.js
 // ==/UserScript==
 
 (function () {

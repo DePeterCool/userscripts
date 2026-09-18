@@ -1,14 +1,14 @@
 // ==UserScript==
 // @name         Snapchat Image, Video & Voice Downloader
-// @namespace    http://tampermonkey.net/
+// @namespace    https://github.com/DePeterCool/userscripts
 // @version      1.1
 // @description  Double-click on an image, video, or voice message to download it instantly without the user noticing.
 // @author       Me
 // @match        https://www.snapchat.com/*
 // @license      MIT
 // @grant        GM_download
-// @downloadURL  https://update.greasyfork.org/scripts/531940/Snapchat%20Image%20%20Video%20Downloader.user.js
-// @updateURL    https://update.greasyfork.org/scripts/531940/Snapchat%20Image%20%20Video%20Downloader.meta.js
+// @downloadURL  https://raw.githubusercontent.com/DePeterCool/userscripts/main/snap%20downloader.js
+// @updateURL    https://raw.githubusercontent.com/DePeterCool/userscripts/main/snap%20downloader.js
 // ==/UserScript==
 
 (function () {

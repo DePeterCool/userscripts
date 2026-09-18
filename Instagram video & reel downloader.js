@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Instagram Video & Reel Downloader
-// @namespace    https://github.com/DePeterCool/sandbox
+// @namespace    https://github.com/DePeterCool/userscripts
 // @version      1.3.0
 // @description  Download Instagram videos and Reels directly as playable MP4 with a single click.
 // @author       Antigravity
@@ -12,6 +12,8 @@
 // @connect      cdninstagram.com
 // @connect      fbcdn.net
 // @run-at       document-start
+// @updateURL    https://raw.githubusercontent.com/DePeterCool/userscripts/main/Instagram%20video%20%26%20reel%20downloader.js
+// @downloadURL  https://raw.githubusercontent.com/DePeterCool/userscripts/main/Instagram%20video%20%26%20reel%20downloader.js
 // ==/UserScript==
 
 (function () {

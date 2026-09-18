@@ -8,10 +8,28 @@ Je hebt een userscript-manager nodig, bijvoorbeeld
 [Tampermonkey](https://www.tampermonkey.net/) of
 [Violentmonkey](https://violentmonkey.github.io/).
 
-Bestanden die op `.user.js` eindigen kun je installeren door ze in "raw"-weergave
-te openen — je manager pikt ze dan automatisch op. De overige bestanden eindigen
-op `.js`, dus daarvoor maak je in het dashboard een nieuw script aan en plak je
-de inhoud erin (of je hernoemt het bestand lokaal naar `.user.js`).
+Installeer een script door op de link hieronder te klikken; je manager vangt de
+installatie op.
+
+| Script | Installeren |
+| --- | --- |
+| IKEA prijsvergelijker | [installeren](https://raw.githubusercontent.com/DePeterCool/userscripts/main/IKEA%20prijsvergelijker%20alle%20domeinen-0.2.user.js) |
+| Instagram Video & Reel Downloader | [installeren](https://raw.githubusercontent.com/DePeterCool/userscripts/main/Instagram%20video%20%26%20reel%20downloader.js) |
+| Snapchat Downloader | [installeren](https://raw.githubusercontent.com/DePeterCool/userscripts/main/snap%20downloader.js) |
+
+Pikt je manager de link niet op — dat kan gebeuren bij de twee bestanden die niet
+op `.user.js` eindigen — maak dan in het dashboard een nieuw script aan en plak
+de inhoud erin.
+
+### Automatische updates
+
+Alle scripts hebben een `@updateURL` en `@downloadURL` die naar deze repo wijzen.
+Je manager controleert die periodiek en installeert een nieuwe versie zodra het
+`@version`-nummer in het bestand omhoog gaat. Alleen het bestand wijzigen is dus
+niet genoeg: bij elke inhoudelijke aanpassing hoort een hogere `@version`.
+
+Heb je een script eerder handmatig geïnstalleerd, dan mist die kopie de
+update-URL's. Installeer hem in dat geval één keer opnieuw via de link hierboven.
 
 ## Scripts
 
@@ -101,3 +119,8 @@ Alle bestanden gebruiken LF-regeleindes. Dat is vastgelegd in
 
 `snap downloader.js` staat onder MIT. Voor de overige scripts is geen licentie
 opgegeven; het zijn persoonlijke scripts, gedeeld zoals ze zijn.
+
+`snap downloader.js` komt oorspronkelijk van
+[Greasy Fork](https://greasyfork.org/scripts/531940). De update-URL's wijzen nu
+naar deze repo, dus updates van de oorspronkelijke auteur komen niet meer
+automatisch binnen.
