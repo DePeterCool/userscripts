@@ -89,7 +89,7 @@ klik opnieuw. De URL is dan geladen en wordt alsnog gevonden.
 
 ### Snapchat Image, Video & Voice Downloader
 
-`snapchat-downloader.user.js` — versie 1.2, MIT-licentie
+`snapchat-downloader.user.js` — versie 1.3, MIT-licentie
 
 Downloadt media uit een Snapchat-gesprek in de webclient.
 
@@ -102,11 +102,18 @@ daarbinnen, dan de omliggende container (knoppen, chatrijen, spelers), en tot
 slot maximaal vier niveaus omhoog in de DOM. Die laatste stap vangt
 spraakberichten op, waar de zichtbare waveform los staat van het `audio`-element.
 
-De extensie wordt afgeleid uit het type en de bron-URL (`m4a`, `wav`, `ogg`,
-`webm`, anders `mp3` voor audio; `mp4` voor video; `png` voor afbeeldingen).
+Voor afbeeldingen leest het script de eerste bytes van het bestand en leidt het
+formaat daaruit af (JPEG, PNG, GIF, WebP of BMP). Dat is nodig omdat Snapchat
+geen bruikbare extensie in de URL zet: een verkeerd geraden extensie wordt door
+de browser vervangen door wat volgens het content-type hoort, en dat is op
+Windows `.jfif` voor JPEG. Lukt het uitlezen niet, dan valt het script terug op
+`.jpg`. Voor audio komt de extensie uit de bron-URL (`m4a`, `wav`, `ogg`,
+`webm`, anders `mp3`), video is altijd `mp4`.
+
 Bestandsnaam: `snapblob_<type>_<iso-timestamp>.<ext>`. Zowel `http(s):`- als
-`blob:`-bronnen worden ondersteund. Downloaden gaat via `GM_download` met
-`saveAs`, met een gewone downloadlink als terugval.
+`blob:`-bronnen worden ondersteund; de eerste worden via `GM_xmlhttpRequest`
+gelezen om CORS te omzeilen, de tweede via een gewone `fetch`. Downloaden gaat
+via `GM_download` met `saveAs`, met een gewone downloadlink als terugval.
 
 ## Ontwikkeling
 
