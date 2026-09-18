@@ -1,14 +1,14 @@
 // ==UserScript==
 // @name         Snapchat Image, Video & Voice Downloader
 // @namespace    https://github.com/DePeterCool/userscripts
-// @version      1.1
+// @version      1.2
 // @description  Double-click on an image, video, or voice message to download it instantly without the user noticing.
 // @author       Me
 // @match        https://www.snapchat.com/*
 // @license      MIT
 // @grant        GM_download
-// @downloadURL  https://raw.githubusercontent.com/DePeterCool/userscripts/main/snap%20downloader.js
-// @updateURL    https://raw.githubusercontent.com/DePeterCool/userscripts/main/snap%20downloader.js
+// @downloadURL  https://raw.githubusercontent.com/DePeterCool/userscripts/main/snapchat-downloader.user.js
+// @updateURL    https://raw.githubusercontent.com/DePeterCool/userscripts/main/snapchat-downloader.user.js
 // ==/UserScript==
 
 (function () {

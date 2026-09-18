@@ -13,13 +13,12 @@ installatie op.
 
 | Script | Installeren |
 | --- | --- |
-| IKEA prijsvergelijker | [installeren](https://raw.githubusercontent.com/DePeterCool/userscripts/main/IKEA%20prijsvergelijker%20alle%20domeinen-0.2.user.js) |
-| Instagram Video & Reel Downloader | [installeren](https://raw.githubusercontent.com/DePeterCool/userscripts/main/Instagram%20video%20%26%20reel%20downloader.js) |
-| Snapchat Downloader | [installeren](https://raw.githubusercontent.com/DePeterCool/userscripts/main/snap%20downloader.js) |
+| IKEA prijsvergelijker | [installeren](https://raw.githubusercontent.com/DePeterCool/userscripts/main/ikea-prijsvergelijker.user.js) |
+| Instagram Video & Reel Downloader | [installeren](https://raw.githubusercontent.com/DePeterCool/userscripts/main/instagram-video-reel-downloader.user.js) |
+| Snapchat Downloader | [installeren](https://raw.githubusercontent.com/DePeterCool/userscripts/main/snapchat-downloader.user.js) |
 
-Pikt je manager de link niet op — dat kan gebeuren bij de twee bestanden die niet
-op `.user.js` eindigen — maak dan in het dashboard een nieuw script aan en plak
-de inhoud erin.
+Lukt dat niet, maak dan in het dashboard een nieuw script aan en plak de inhoud
+van het bestand erin.
 
 ### Automatische updates
 
@@ -35,7 +34,7 @@ update-URL's. Installeer hem in dat geval één keer opnieuw via de link hierbov
 
 ### IKEA prijsvergelijker alle domeinen
 
-`IKEA prijsvergelijker alle domeinen-0.2.user.js` — versie 0.3
+`ikea-prijsvergelijker.user.js` — versie 0.4
 
 Toont op een IKEA-productpagina een tooltip met de prijs van hetzelfde artikel in
 België, Nederland, Duitsland en Frankrijk.
@@ -51,9 +50,9 @@ land-/taalcode en vraagt dezelfde pagina op bij `ikea.com/nl/nl`, `/de/de` en
 
 **Beperkingen**
 
-- De `@match` staat op `https://www.ikea.com/be/nl/p/*`. Ondanks de naam draait
-  het script dus alleen op het Belgisch-Nederlandstalige domein. Wil je het op
-  andere domeinen gebruiken, voeg dan extra `@match`-regels toe.
+- De `@match` is `https://www.ikea.com/*/*/p/*` en dekt dus elke land-/taalcombinatie
+  op ikea.com. De vergelijking zelf blijft vast op BE, NL, DE en FR staan,
+  ongeacht op welk domein je zit.
 - De vergelijking gaat ervan uit dat de URL-slug in elk land gelijk is. Wijkt die
   af of bestaat het artikel daar niet, dan meldt de tooltip "niet gevonden".
 - Prijzen worden getoond zoals IKEA ze publiceert, zonder omrekening of
@@ -64,7 +63,7 @@ mogen bevragen.
 
 ### Instagram Video & Reel Downloader
 
-`Instagram video & reel downloader.js` — versie 1.3.0
+`instagram-video-reel-downloader.user.js` — versie 1.3.1
 
 Zet een **Download MP4**-knop bij video's en Reels op instagram.com.
 
@@ -90,7 +89,7 @@ klik opnieuw. De URL is dan geladen en wordt alsnog gevonden.
 
 ### Snapchat Image, Video & Voice Downloader
 
-`snap downloader.js` — versie 1.1, MIT-licentie
+`snapchat-downloader.user.js` — versie 1.2, MIT-licentie
 
 Downloadt media uit een Snapchat-gesprek in de webclient.
 
@@ -117,10 +116,10 @@ Alle bestanden gebruiken LF-regeleindes. Dat is vastgelegd in
 
 ## Licentie
 
-`snap downloader.js` staat onder MIT. Voor de overige scripts is geen licentie
-opgegeven; het zijn persoonlijke scripts, gedeeld zoals ze zijn.
+`snapchat-downloader.user.js` staat onder MIT. Voor de overige scripts is geen
+licentie opgegeven; het zijn persoonlijke scripts, gedeeld zoals ze zijn.
 
-`snap downloader.js` komt oorspronkelijk van
+`snapchat-downloader.user.js` komt oorspronkelijk van
 [Greasy Fork](https://greasyfork.org/scripts/531940). De update-URL's wijzen nu
 naar deze repo, dus updates van de oorspronkelijke auteur komen niet meer
 automatisch binnen.
