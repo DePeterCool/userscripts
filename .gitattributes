@@ -1,0 +1,3 @@
+# Normaliseer alle tekstbestanden naar LF, zowel in de repo als in de werkkopie.
+# Legt het gedrag vast in de repo zelf, los van core.autocrlf per machine.
+* text=auto eol=lf
