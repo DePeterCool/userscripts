@@ -15,6 +15,7 @@ installatie op.
 | --- | --- |
 | IKEA prijsvergelijker | [installeren](https://raw.githubusercontent.com/DePeterCool/userscripts/main/ikea-prijsvergelijker.user.js) |
 | Instagram Video & Reel Downloader | [installeren](https://raw.githubusercontent.com/DePeterCool/userscripts/main/instagram-video-reel-downloader.user.js) |
+| Periscope Video Downloader | [installeren](https://raw.githubusercontent.com/DePeterCool/userscripts/main/periscope-downloader.user.js) |
 | Snapchat Downloader | [installeren](https://raw.githubusercontent.com/DePeterCool/userscripts/main/snapchat-downloader.user.js) |
 
 Lukt dat niet, maak dan in het dashboard een nieuw script aan en plak de inhoud
@@ -86,6 +87,53 @@ nieuw tabblad in plaats van een kapot bestand op te slaan. Bestandsnaam:
 
 **Tip** — lukt het extraheren niet, speel de video dan even een seconde af en
 klik opnieuw. De URL is dan geladen en wordt alsnog gevonden.
+
+### Periscope Video Downloader
+
+`periscope-downloader.user.js` — versie 1.0
+
+Downloadt een Periscope-broadcast als één bestand door de HLS-playlist op te
+halen en alle segmenten aan elkaar te plakken.
+
+**Let op** — Periscope zelf is in maart 2021 uitgezet; `periscope.tv` en
+`pscp.tv` serveren nog enkel archiefpagina's. De player-infrastructuur erachter
+(`video.pscp.tv`) draait wél nog voor broadcasts op X/Twitter, en daar werkt dit
+script dus in de praktijk. De `@match` dekt beide.
+
+**Gebruik** — open een broadcast. Rechtsonder verschijnt een paneeltje zodra er
+een bron gevonden is. Kies de bron in de lijst en klik **Download**; de
+voortgangsbalk toont welk segment bezig is en tijdens het downloaden wordt de
+knop een stopknop. Klik op de titelbalk om het paneel in te klappen.
+
+**Formaat** — HLS met een `#EXT-X-MAP`-init-segment (fMP4) levert direct een
+speelbare **`.mp4`** op. Klassieke MPEG-TS-segmenten worden een **`.ts`**: ook
+speelbaar (VLC, mpv), maar wil je er MP4 van, remux dan zonder kwaliteitsverlies
+met het commando achter de **⧉ ffmpeg**-knop (`ffmpeg -i … -c copy …`). Echt
+transcoderen kan een userscript niet; daar is ffmpeg voor nodig.
+
+**Hoe het werkt** — het script zoekt de playlist langs drie wegen: de publieke
+API (`api.pscp.tv/api/v2/getAccessPublic`) op basis van het broadcast-id of de
+`/w/`-token uit de URL, onderschepte `fetch`- en `XHR`-aanroepen van de player,
+en de Performance-entries van de pagina. Uit een master-playlist kiest het de
+variant met de hoogste bitrate. Segmenten worden zes tegelijk opgehaald, elk met
+drie pogingen; AES-128-versleutelde segmenten worden ter plekke ontsleuteld via
+WebCrypto (HLS gebruikt AES-CBC met PKCS#7, dus zonder extra bibliotheek). Bij
+een live broadcast zit alleen het deel in het bestand dat op dat moment in de
+playlist staat.
+
+Bestandsnaam: `periscope_<id>_<iso-timestamp>.mp4` of `.ts`. Opslaan gaat via
+een blob-downloadlink, omdat `GM_download` `blob:`-URL's niet in elke manager
+accepteert; een losse MP4-bron gaat wél via `GM_download`.
+
+**Beperkingen**
+
+- Het volledige bestand wordt in het geheugen opgebouwd. Voor broadcasts van
+  meerdere uren is de ffmpeg-route zuiniger.
+- Fetch gaat eerst rechtstreeks en valt terug op `GM_xmlhttpRequest`. Zit de
+  CDN op een host die niet in de `@connect`-lijst staat, voeg die dan toe.
+- Het gekopieerde ffmpeg-commando werkt alleen zolang de tokens in de URL geldig
+  zijn; op cookie-gesigneerde replays kan het commando falen waar het script zelf
+  slaagt.
 
 ### Snapchat Image, Video & Voice Downloader
 
